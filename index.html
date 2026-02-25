@@ -493,16 +493,27 @@
   /* ─── TESTIMONIALS ─── */
   .testimonials { background: var(--white); }
   .testimonials-header { text-align: center; max-width: 620px; margin: 0 auto 56px; }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
   .testimonial-card { background: #f7f8fb; border-radius: 18px; padding: 34px 28px; border: 1px solid #e8edf4; transition: all 0.25s; position: relative; }
   .testimonial-card:hover { box-shadow: 0 8px 30px rgba(0,69,124,0.07); transform: translateY(-3px); }
   .testimonial-quote-mark { font-family: var(--display-font); font-size: 4.5rem; line-height: 0.5; color: var(--western-gold); opacity: 0.22; position: absolute; top: 22px; left: 26px; }
   .testimonial-stars { display: flex; gap: 3px; margin-bottom: 14px; }
   .testimonial-text { font-size: 0.9rem; color: #374151; line-height: 1.7; font-style: italic; margin-bottom: 18px; }
   .testimonial-author { display: flex; align-items: center; gap: 11px; }
-  .author-avatar { width: 38px; height: 38px; background: linear-gradient(135deg, var(--western-blue), var(--lapis)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--white); font-size: 0.82rem; }
+  .author-avatar { width: 38px; height: 38px; background: linear-gradient(135deg, var(--western-blue), var(--lapis)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--white); font-size: 0.82rem; flex-shrink: 0; }
   .author-name { font-size: 0.86rem; font-weight: 700; color: var(--western-blue); display: block; }
   .author-location { font-size: 0.76rem; color: #9ca3af; }
+  /* Photo cards */
+  .testimonial-card.photo-card { padding: 0; overflow: hidden; border-radius: 20px; }
+  .testimonial-card.photo-card:hover { box-shadow: 0 14px 44px rgba(0,69,124,0.13); transform: translateY(-5px); }
+  .testimonial-photo { width: 100%; height: 300px; object-fit: cover; object-position: center 20%; display: block; }
+  .testimonial-photo-body { padding: 24px 26px 22px; }
+  .testimonial-card.featured-card { background: var(--western-blue); border-color: var(--western-blue); }
+  .testimonial-card.featured-card .testimonial-text { color: rgba(255,255,255,0.88); }
+  .testimonial-card.featured-card .author-name { color: var(--white); }
+  .testimonial-card.featured-card .author-location { color: rgba(255,255,255,0.5); }
+  .tech-tag { display: inline-block; background: rgba(0,69,124,0.07); border: 1px solid rgba(0,69,124,0.14); color: var(--western-blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 100px; margin-bottom: 12px; }
+  .tech-name-line { font-size: 0.79rem; font-weight: 600; color: var(--western-gold); margin-top: 12px; display: block; }
 
   /* ─── LEAD SECTION ─── */
   .lead-section { background: linear-gradient(135deg, var(--western-blue) 0%, var(--lapis) 55%, var(--alt-blue) 100%); padding: 96px 0; position: relative; overflow: hidden; }
@@ -611,7 +622,8 @@
     .hero-card { max-width: 500px; margin: 0 auto; }
     .story-grid, .guarantee-inner, .lead-inner, .service-area-inner { grid-template-columns: 1fr; gap: 44px; }
     .services-grid { grid-template-columns: 1fr 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+    .testimonial-photo { height: 320px; object-position: center 15%; }
     .why-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .chat-window { width: calc(100vw - 36px); right: 18px; }
@@ -777,7 +789,7 @@
   <div class="proof-bar-inner">
     <div class="proof-item">
       <div class="stars" aria-label="5 stars">★★★★★</div>
-      <span>4.9 Google Rating</span>
+      <span>2,000+ Five-Star Reviews</span>
     </div>
     <div class="proof-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="var(--western-gold)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -969,42 +981,55 @@
       <h2 id="reviews-heading" class="section-title">2,000+ Families Trust Western. Here's Why.</h2>
     </div>
     <div class="testimonials-grid">
-      <article class="testimonial-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
-        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"I was nervous having someone in my home I didn't know. By the second visit, he knew my dog's name and asked about my daughter's soccer season. I haven't seen a single ant in 8 months. Genuinely blown away."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">SM</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Sarah M.</span>
-            <span class="author-location">Washington, UT · Customer for 2 years</span>
+
+      <!-- Jenny: Superhero quote with photo -->
+      <article class="testimonial-card photo-card featured-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
+        <img src="jenny-testimonial.jpg" alt="Jenny with her Western Pest Control technician at her front door" class="testimonial-photo" loading="lazy">
+        <div class="testimonial-photo-body">
+          <div style="color:var(--western-gold);font-size:13px;margin-bottom:12px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text" itemprop="reviewBody" style="font-size:0.84rem;">"Who would ever guess that superheroes wear exterminator uniforms? These wonderful heroes come running when a gopher hides in my lawn, Hagrid&#8217;s spiders cast shadows in my bedroom, and when roaches invade my patio. Just like Superman, they greet me with a smile and always go the extra mile. Who doesn&#8217;t need a superhero on speed dial?"</p>
+          <div class="testimonial-author" style="margin-top:14px;">
+            <div class="author-avatar" style="background:var(--western-gold);" aria-hidden="true">J</div>
+            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span class="author-name" itemprop="name">Jenny</span>
+              <span class="author-location" style="color:rgba(255,255,255,0.52);">St. George, UT &nbsp;&#183;&nbsp; Western Customer</span>
+            </div>
           </div>
         </div>
       </article>
-      <article class="testimonial-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
-        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"I buy my pest professional a birthday card every year. I know that sounds crazy, but he's been coming to my home for 9 years and treats it like it's his own. Grandkids visit all the time — zero worries, ever."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">LH</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Linda H.</span>
-            <span class="author-location">St. George, UT · Customer for 9 years</span>
+
+      <!-- Carla: 9-year customer with Scott photo -->
+      <article class="testimonial-card photo-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
+        <img src="scott-and-carla.jpg" alt="Carla with Scott, her Western Pest Control technician of over 9 years" class="testimonial-photo" loading="lazy">
+        <div class="testimonial-photo-body">
+          <span class="tech-tag">&#9733;&nbsp; 9+ Year Customer</span>
+          <div style="color:var(--western-gold);font-size:13px;margin-bottom:12px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text" itemprop="reviewBody">"Carla has been part of the Western family for over nine years. She&#8217;ll tell you she loves all of us here at Western &#8212; and honestly, the feeling is completely mutual. This is exactly what we mean when we say we&#8217;re here for good."</p>
+          <div class="testimonial-author" style="margin-top:14px;">
+            <div class="author-avatar" aria-hidden="true">C</div>
+            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span class="author-name" itemprop="name">Carla</span>
+              <span class="author-location">St. George, UT &nbsp;&#183;&nbsp; Customer for 9+ years</span>
+            </div>
           </div>
+          <span class="tech-name-line">&#128100; Technician: Scott</span>
         </div>
       </article>
+
+      <!-- Robert T: text card -->
       <article class="testimonial-card reveal reveal-delay-3" itemscope itemtype="https://schema.org/Review">
-        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Switched from another company after a year of frustration. Western diagnosed the actual problem and fixed it in two visits. They answered when I called. That shouldn't be rare, but it is. Not here."</p>
+        <div class="testimonial-quote-mark" aria-hidden="true">&#8220;</div>
+        <div style="color:var(--western-gold);font-size:13px;margin-bottom:14px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Switched from another company after a year of frustration. Western diagnosed the actual problem and fixed it in two visits. They answered when I called. That shouldn&#8217;t be rare, but it is. Not here."</p>
         <div class="testimonial-author">
           <div class="author-avatar" aria-hidden="true">RT</div>
           <div itemprop="author" itemscope itemtype="https://schema.org/Person">
             <span class="author-name" itemprop="name">Robert T.</span>
-            <span class="author-location">Ivins, UT · Customer for 4 years</span>
+            <span class="author-location">Ivins, UT &nbsp;&#183;&nbsp; Customer for 4 years</span>
           </div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -1125,7 +1150,7 @@
       <span class="footer-tagline">Here, for Good.</span>
       <p>Locally owned and operated in Southern Utah since 2001. 25 years of protecting families, building real relationships, and giving back to the community we love.</p>
       <a href="tel:4355555555" class="footer-phone">(435) 555-5555</a>
-      <a href="mailto:hello@wpest.com" class="footer-email">hello@wpest.com</a>
+      <a href="/cdn-cgi/l/email-protection#9cf4f9f0f0f3dcebecf9efe8b2fff3f1" class="footer-email"><span class="__cf_email__" data-cfemail="f49c9198989bb48384918780da979b99">[email&#160;protected]</span></a>
     </div>
     <nav aria-label="Services footer navigation">
       <div class="footer-heading">Services</div>
@@ -1210,7 +1235,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── UTM Capture for GHL / FieldRoutes ──
 (function() {
   const params = new URLSearchParams(window.location.search);
@@ -1229,10 +1254,19 @@
 })();
 
 // ── Scroll Reveal ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function revealAll() {
+  document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+}
+if (window.IntersectionObserver) {
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+  // Fallback: ensure everything visible after 600ms regardless
+  setTimeout(revealAll, 600);
+} else {
+  revealAll();
+}
 
 // ── Chatbot ──
 let chatOpen = false;
@@ -1252,10 +1286,10 @@ function toggleChat() {
 }
 
 const botReplies = {
-  'I have a pest emergency': 'We're on it! Call (435) 555-5555 right now — we answer in 5 seconds. Or fill out the quick form on this page and we'll call you immediately.',
-  'Get a free quote': 'Great! Fill out the form on this page for a free, no-pressure inspection. Takes 60 seconds. Or call (435) 555-5555 anytime.',
-  'Pricing info': 'We're straightforward about pricing — always. We'd love to show you the value first with a free inspection. Want to schedule one?',
-  'Service area': 'We serve Washington County, Iron County, and Mesquite, NV — including St. George, Washington City, Cedar City, Hurricane, Ivins, and surrounding areas. Are you nearby?'
+  "I have a pest emergency": "Call us at (435) 555-5555 right now \u2014 we answer in 5 seconds. Or fill out the quick form on this page and we will call you immediately.",
+  "Get a free quote": "Great! Fill out the form on this page for a free, no-pressure inspection. Takes 60 seconds. Or call (435) 555-5555 anytime.",
+  "Pricing info": "We are always straightforward about pricing. We would love to show you the value first with a free inspection. Want to schedule one?",
+  "Service area": "We serve Washington County, Iron County, and Mesquite NV \u2014 including St. George, Washington City, Cedar City, Hurricane, Ivins, and surrounding areas. Are you nearby?"
 };
 
 function sendQR(msg) {
@@ -1305,7 +1339,7 @@ function handleHeroForm(e) {
   // });
 
   setTimeout(() => {
-    btn.textContent = '✅ Request Received! We'll call you shortly.';
+    btn.textContent = 'Request Received! We will call you shortly.';
     btn.style.background = '#16a34a';
   }, 600);
 }
@@ -1327,7 +1361,7 @@ function handleLeadForm(e) {
   // });
 
   setTimeout(() => {
-    btn.textContent = '✅ Perfect! We'll be in touch same day.';
+    btn.textContent = 'Perfect! We will be in touch same day.';
     btn.style.background = '#16a34a';
   }, 600);
 }
@@ -1382,9 +1416,4 @@ function handleLeadForm(e) {
       For WordPress: create a full-width page template (no sidebar),
       disable the theme header/footer, and paste this HTML into a
       Custom HTML block or via a page builder full-width section.
-      Alternatively use as a standalone landing page hosted on wpest.com/start
-      or as the site homepage.
-
-══════════════════════════════════════════ -->
-</body>
-</html>
+      Alternatively us
