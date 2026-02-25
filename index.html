@@ -258,7 +258,7 @@
     background: rgba(200,138,18,0.14);
     border: 1px solid rgba(200,138,18,0.32);
     color: var(--western-gold);
-    font-size: 0.76rem;
+    font-size: 0.92rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -425,8 +425,8 @@
 
   /* ─── SECTION DEFAULTS ─── */
   .section { padding: 96px 0; }
-  .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--western-gold); display: block; margin-bottom: 12px; }
-  .section-title { font-family: var(--display-font); font-size: clamp(1.8rem, 3.2vw, 2.65rem); font-weight: 900; color: var(--western-blue); line-height: 1.16; margin-bottom: 18px; }
+  .section-eyebrow { font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--western-gold); display: block; margin-bottom: 16px; }
+  .section-title { font-family: var(--display-font); font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 900; color: var(--western-blue); line-height: 1.1; margin-bottom: 20px; }
   .section-sub { font-size: 0.97rem; color: #4b5563; line-height: 1.72; max-width: 580px; }
 
   /* ─── STORY ─── */
@@ -557,6 +557,16 @@
   /* ─── TESTIMONIALS ─── */
   .testimonials { background: var(--white); }
   .testimonials-header { text-align: center; max-width: 620px; margin: 0 auto 52px; }
+  /* Photo cards */
+  .testimonial-card.photo-card { padding: 0; overflow: hidden; border-radius: 20px; }
+  .testimonial-card.photo-card:hover { box-shadow: 0 14px 44px rgba(0,69,124,0.13); transform: translateY(-5px); }
+  .testimonial-photo { width: 100%; height: 300px; object-fit: cover; object-position: center 20%; display: block; }
+  .testimonial-photo-body { padding: 24px 26px 22px; }
+  .testimonial-card.featured-card.photo-card .testimonial-text { color: rgba(255,255,255,0.88); }
+  .testimonial-card.featured-card.photo-card .author-name { color: var(--white); }
+  .testimonial-card.featured-card.photo-card .author-sub { color: rgba(255,255,255,0.52); }
+  .tech-name-line { font-size: 0.79rem; font-weight: 600; color: var(--western-gold); margin-top: 12px; display: block; }
+
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
   .testimonial-card {
     background: var(--white); border-radius: 18px; padding: 30px 26px;
@@ -676,6 +686,7 @@
 
   /* ─── FOOTER ─── */
   footer { background: #080c12; padding: 68px 0 28px; }
+  footer nav { background: transparent; }
   .footer-grid { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
   .footer-brand-logo { height: 90px; width: auto; margin-bottom: 16px; display: block; filter: brightness(0) invert(1); }
   .footer-tagline { font-size: 0.76rem; color: var(--western-gold); font-style: italic; letter-spacing: 0.04em; margin-bottom: 14px; display: block; }
@@ -743,7 +754,7 @@
     .container { padding: 0 18px; }
 
     /* Typography scale */
-    .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); line-height: 1.2; }
+    .section-title { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.15; }
     .section-sub { font-size: 0.92rem; }
 
     /* Announcement bar */
@@ -829,7 +840,7 @@
   /* ─── RESPONSIVE — SMALL PHONES (≤380px) ─── */
   @media (max-width: 380px) {
     .hero-headline { font-size: 1.7rem; }
-    .section-title { font-size: 1.5rem; }
+    .section-title { font-size: 1.9rem; }
     .nav-cta { display: none; }
   }
   /* ─── MOBILE STICKY CALL BAR ─── */
@@ -1050,42 +1061,41 @@
 
     <div class="testimonials-grid">
 
-      <!-- 1: Jenny – superhero quote, featured -->
-      <article class="testimonial-card featured-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Who would ever guess that superheroes wear exterminator uniforms? These wonderful heroes come running when a gopher hides in my lawn, Hagrid's spiders cast shadows in my bedroom, and when roaches invade my patio. Just like Superman, they greet me with a smile and always go the extra mile. Who doesn't need a superhero on speed dial?"</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:var(--western-gold);" aria-hidden="true">J</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Jenny</span>
-            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Western Customer</span>
+      <!-- Jenny: photo card, featured blue -->
+      <article class="testimonial-card photo-card featured-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
+        <img src="jenny-testimonial.jpg" alt="Jenny with her Western Pest Control technician" class="testimonial-photo" loading="lazy">
+        <div class="testimonial-photo-body">
+          <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text" itemprop="reviewBody" style="font-size:0.84rem;color:rgba(255,255,255,0.88);">"Who would ever guess that superheroes wear exterminator uniforms? These wonderful heroes come running when a gopher hides in my lawn, Hagrid's spiders cast shadows in my bedroom, and when roaches invade my patio. Just like Superman, they greet me with a smile and always go the extra mile. Who doesn't need a superhero on speed dial?"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:var(--western-gold);" aria-hidden="true">J</div>
+            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span class="author-name" itemprop="name" style="color:var(--white);">Jenny</span>
+              <span class="author-sub" style="color:rgba(255,255,255,0.52);">St. George, UT &nbsp;·&nbsp; Western Customer</span>
+            </div>
           </div>
         </div>
-        <span class="t-source">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Google Review
-        </span>
       </article>
 
-      <!-- 2: Carla – 9+ year customer -->
-      <article class="testimonial-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
-        <span class="t-badge">★ 9+ Year Customer</span>
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Carla has been part of the Western family for over nine years. She'll tell you she loves all of us here at Western — and honestly, the feeling is completely mutual. This is exactly what we mean when we say we're here for good."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">C</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Carla</span>
-            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Technician: Scott</span>
+      <!-- Carla: photo card, Scott technician -->
+      <article class="testimonial-card photo-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
+        <img src="scott-and-carla.jpg" alt="Carla with Scott, her Western Pest Control technician of 9+ years" class="testimonial-photo" loading="lazy">
+        <div class="testimonial-photo-body">
+          <span class="t-badge">★ 9+ Year Customer</span>
+          <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-text" itemprop="reviewBody">"Carla has been part of the Western family for over nine years. She'll tell you she loves all of us here at Western — and honestly, the feeling is completely mutual. This is exactly what we mean when we say we're here for good."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">C</div>
+            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span class="author-name" itemprop="name">Carla</span>
+              <span class="author-sub">St. George, UT &nbsp;·&nbsp; Customer for 9+ years</span>
+            </div>
           </div>
+          <span class="tech-name-line">👤 Technician: Scott</span>
         </div>
-        <span class="t-source">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Google Review
-        </span>
       </article>
 
-      <!-- 3: Robert T. – switcher story -->
+      <!-- Robert T: text card -->
       <article class="testimonial-card reveal reveal-delay-3" itemscope itemtype="https://schema.org/Review">
         <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="testimonial-text" itemprop="reviewBody">"Switched from another company after a year of frustration. Western diagnosed the actual problem and fixed it in two visits. They answered when I called. That shouldn't be rare, but it is. Not here."</p>
@@ -1094,58 +1104,6 @@
           <div itemprop="author" itemscope itemtype="https://schema.org/Person">
             <span class="author-name" itemprop="name">Robert T.</span>
             <span class="author-sub">Ivins, UT &nbsp;·&nbsp; Customer for 4 years</span>
-          </div>
-        </div>
-        <span class="t-source">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Google Review
-        </span>
-      </article>
-
-      <!-- 4: Michelle H. – scorpion family -->
-      <article class="testimonial-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"We had scorpions in the baby's room. I was terrified. Western was at our house the same morning I called. Our tech explained exactly what he was doing and why. No scorpions since — and that was 14 months ago. I tell every new mom I know about them."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">MH</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Michelle H.</span>
-            <span class="author-sub">Washington, UT &nbsp;·&nbsp; Customer for 2 years</span>
-          </div>
-        </div>
-        <span class="t-source">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Google Review
-        </span>
-      </article>
-
-      <!-- 5: Dave & Lisa K. – long-term -->
-      <article class="testimonial-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
-        <span class="t-badge">★ 7+ Year Customer</span>
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Seven years and counting. Our guy knows our dogs by name, coils the hose when he's done, and texts us when he's on the way. Western isn't a vendor — they're part of the rhythm of our home. We wouldn't switch for anything."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">DK</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Dave &amp; Lisa K.</span>
-            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Customer for 7 years</span>
-          </div>
-        </div>
-        <span class="t-source">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Google Review
-        </span>
-      </article>
-
-      <!-- 6: Tom S. – 5-second answer -->
-      <article class="testimonial-card reveal reveal-delay-3" itemscope itemtype="https://schema.org/Review">
-        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Called at 7:45am on a Monday. A real person answered before the second ring. Technician was at my door by noon. I've dealt with other pest companies where I left three voicemails and heard nothing for two days. This is a completely different level of service."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" aria-hidden="true">TS</div>
-          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span class="author-name" itemprop="name">Tom S.</span>
-            <span class="author-sub">Hurricane, UT &nbsp;·&nbsp; Customer for 3 years</span>
           </div>
         </div>
         <span class="t-source">
@@ -1300,7 +1258,7 @@
           <li class="service-feature">Entry point identification &amp; guidance</li>
           <li class="service-feature">Products that give families peace of mind</li>
         </ul>
-        <a href="#schedule" class="service-cta" aria-label="Schedule scorpion control">Get Scorpion-Free →</a>
+        <a href="#schedule" class="service-cta" aria-label="Schedule scorpion control">Get a Scorpion-Free Home →</a>
       </article>
 
       <article class="service-card reveal reveal-delay-3">
