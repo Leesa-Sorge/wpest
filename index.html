@@ -556,28 +556,57 @@
 
   /* ─── TESTIMONIALS ─── */
   .testimonials { background: var(--white); }
-  .testimonials-header { text-align: center; max-width: 620px; margin: 0 auto 56px; }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
-  .testimonial-card { background: #f7f8fb; border-radius: 18px; padding: 34px 28px; border: 1px solid #e8edf4; transition: all 0.25s; position: relative; }
-  .testimonial-card:hover { box-shadow: 0 8px 30px rgba(0,69,124,0.07); transform: translateY(-3px); }
-  .testimonial-quote-mark { font-family: var(--display-font); font-size: 4.5rem; line-height: 0.5; color: var(--western-gold); opacity: 0.22; position: absolute; top: 22px; left: 26px; }
-  .testimonial-stars { display: flex; gap: 3px; margin-bottom: 14px; }
-  .testimonial-text { font-size: 0.9rem; color: #374151; line-height: 1.7; font-style: italic; margin-bottom: 18px; }
-  .testimonial-author { display: flex; align-items: center; gap: 11px; }
-  .author-avatar { width: 38px; height: 38px; background: linear-gradient(135deg, var(--western-blue), var(--lapis)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--white); font-size: 0.82rem; flex-shrink: 0; }
-  .author-name { font-size: 0.86rem; font-weight: 700; color: var(--western-blue); display: block; }
-  .author-location { font-size: 0.76rem; color: #9ca3af; }
-  /* Photo cards */
-  .testimonial-card.photo-card { padding: 0; overflow: hidden; border-radius: 20px; }
-  .testimonial-card.photo-card:hover { box-shadow: 0 14px 44px rgba(0,69,124,0.13); transform: translateY(-5px); }
-  .testimonial-photo { width: 100%; height: 300px; object-fit: cover; object-position: center 20%; display: block; }
-  .testimonial-photo-body { padding: 24px 26px 22px; }
+  .testimonials-header { text-align: center; max-width: 620px; margin: 0 auto 52px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+  .testimonial-card {
+    background: var(--white); border-radius: 18px; padding: 30px 26px;
+    border: 1px solid #e8edf4; transition: all 0.25s; position: relative;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .testimonial-card:hover { box-shadow: 0 10px 36px rgba(0,69,124,0.09); transform: translateY(-3px); }
   .testimonial-card.featured-card { background: var(--western-blue); border-color: var(--western-blue); }
   .testimonial-card.featured-card .testimonial-text { color: rgba(255,255,255,0.88); }
   .testimonial-card.featured-card .author-name { color: var(--white); }
-  .testimonial-card.featured-card .author-location { color: rgba(255,255,255,0.5); }
-  .tech-tag { display: inline-block; background: rgba(0,69,124,0.07); border: 1px solid rgba(0,69,124,0.14); color: var(--western-blue); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 100px; margin-bottom: 12px; }
-  .tech-name-line { font-size: 0.79rem; font-weight: 600; color: var(--western-gold); margin-top: 12px; display: block; }
+  .testimonial-card.featured-card .author-sub { color: rgba(255,255,255,0.52); }
+  .testimonial-card.featured-card .t-source { color: rgba(255,255,255,0.38); border-color: rgba(255,255,255,0.12); }
+  /* Stars */
+  .t-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; margin-bottom: 12px; }
+  /* Quote body */
+  .testimonial-text { font-size: 0.89rem; color: #374151; line-height: 1.72; font-style: italic; margin-bottom: 20px; }
+  /* Author row */
+  .testimonial-author { display: flex; align-items: center; gap: 11px; }
+  .author-avatar {
+    width: 40px; height: 40px; background: linear-gradient(135deg, var(--western-blue), var(--lapis));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: var(--white); font-size: 0.82rem; flex-shrink: 0;
+  }
+  .author-name { font-size: 0.86rem; font-weight: 700; color: var(--western-blue); display: block; line-height: 1.2; }
+  .author-sub { font-size: 0.74rem; color: #9ca3af; display: block; margin-top: 2px; }
+  /* Google source badge */
+  .t-source {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.68rem; font-weight: 600; color: #9ca3af;
+    border: 1px solid #e5e7eb; border-radius: 100px;
+    padding: 3px 9px; margin-top: 14px;
+    letter-spacing: 0.03em;
+  }
+  .t-source svg { flex-shrink: 0; }
+  /* Years badge */
+  .t-badge {
+    display: inline-block; background: rgba(200,138,18,0.1); border: 1px solid rgba(200,138,18,0.28);
+    color: var(--western-gold); font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px;
+    border-radius: 100px; margin-bottom: 10px;
+  }
+  /* Review count banner */
+  .reviews-cta { text-align: center; margin-top: 44px; }
+  .reviews-cta a {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--western-blue); color: var(--white); text-decoration: none;
+    font-size: 0.88rem; font-weight: 700; padding: 13px 26px; border-radius: 100px;
+    transition: background 0.2s; letter-spacing: 0.02em;
+  }
+  .reviews-cta a:hover { background: var(--lapis); }
 
   /* ─── LEAD SECTION ─── */
   .lead-section { background: linear-gradient(135deg, var(--western-blue) 0%, var(--lapis) 55%, var(--alt-blue) 100%); padding: 96px 0; position: relative; overflow: hidden; }
@@ -676,31 +705,165 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 1024px) {
-    .nav-links li:nth-child(5) { display: none; }
-  }
+  /* ─── RESPONSIVE — TABLET (≤900px) ─── */
   @media (max-width: 900px) {
+    /* Nav */
     .nav-links { display: none; }
-    .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
-    .hero-card { max-width: 500px; margin: 0 auto; }
-    .story-grid, .guarantee-inner, .lead-inner, .service-area-inner { grid-template-columns: 1fr; gap: 44px; }
-    .guarantee-grid { grid-template-columns: repeat(3, 1fr); }
-    .services-grid { grid-template-columns: 1fr 1fr; }    .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-    .testimonial-photo { height: 320px; object-position: center 15%; }
-    .why-grid { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .chat-window { width: calc(100vw - 36px); right: 18px; }
+    .nav-phone-wrap { display: none; }
+
+    /* Hero */
+    .hero-content { grid-template-columns: 1fr; gap: 36px; padding: 52px 20px 60px; }
+    .hero-card { max-width: 520px; margin: 0 auto; }
+    .hero-headline { font-size: clamp(2rem, 5vw, 3rem); }
+
+    /* Sections stacking */
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+    .lead-inner { grid-template-columns: 1fr; gap: 40px; }
+    .service-area-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .service-card { padding: 36px 26px; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Why */
+    .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .chat-window { width: calc(100vw - 32px); right: 16px; }
   }
+
+  /* ─── RESPONSIVE — MOBILE (≤600px) ─── */
   @media (max-width: 600px) {
-    .services-grid, .why-grid { grid-template-columns: 1fr; }
+    /* Global spacing */
+    .section { padding: 60px 0; }
+    .container { padding: 0 18px; }
+
+    /* Typography scale */
+    .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); line-height: 1.2; }
+    .section-sub { font-size: 0.92rem; }
+
+    /* Announcement bar */
+    .announcement-bar { font-size: 0.72rem; padding: 9px 16px; text-align: center; }
+
+    /* Nav */
+    .nav-inner { padding: 0 16px; height: 58px; }
+    .nav-logo { height: 36px; }
+    .nav-cta { padding: 9px 16px; font-size: 0.8rem; }
+
+    /* Hero */
+    .hero-content { padding: 44px 18px 52px; gap: 32px; }
+    .hero-headline { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+    .hero-sub { font-size: 0.94rem; }
+    .hero-cta-group { flex-direction: column; gap: 12px; }
+    .hero-btn-primary, .hero-btn-secondary { width: 100%; justify-content: center; padding: 16px 20px; font-size: 0.95rem; }
+    .hero-trust { flex-wrap: wrap; gap: 12px; }
+    .hero-trust-item { font-size: 0.76rem; }
+    .hero-card { padding: 24px 20px; }
+    .card-label { font-size: 0.68rem; }
+    .card-heading { font-size: 1.15rem; }
+
+    /* Proof bar */
+    .proof-bar-inner { flex-direction: column; gap: 10px; padding: 16px 18px; text-align: center; }
+    .proof-item { font-size: 0.78rem; justify-content: center; }
+    .proof-divider { display: none; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr; gap: 14px; }
+    .testimonial-card { padding: 24px 20px; }
+    .testimonial-text { font-size: 0.86rem; }
+
+    /* Guarantee hub */
+    .guarantee { padding: 60px 0; }
+    .guarantee-header { margin-bottom: 48px; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; gap: 14px; }
+    .service-card { padding: 32px 24px; }
+    .service-icon { width: 56px; height: 56px; font-size: 1.6rem; margin-bottom: 18px; }
+    .service-title { font-size: 1.2rem; }
+
+    /* Story */
+    .story-visual { display: none; } /* hide shield on mobile, text only */
+    .story-text { text-align: left; }
+
+    /* Why */
+    .why-grid { grid-template-columns: 1fr; gap: 12px; }
+    .why-card { padding: 22px 18px; text-align: left; display: flex; gap: 14px; align-items: flex-start; }
+    .why-icon { font-size: 1.5rem; margin-bottom: 0; flex-shrink: 0; }
+    .why-title { font-size: 0.92rem; margin-bottom: 5px; }
+    .why-desc { font-size: 0.82rem; }
+
+    /* Lead CTA */
+    .lead-section { padding: 60px 0; }
+    .lead-inner { gap: 36px; }
+    .lead-form-card { padding: 28px 20px; }
+    .card-heading { font-size: 1.2rem; }
     .form-row { grid-template-columns: 1fr; }
-    .proof-bar-inner { gap: 18px; }
-    .hero-trust { gap: 14px; }
-    .hero-card, .lead-form-card { padding: 28px 20px; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .form-submit { padding: 15px; font-size: 0.95rem; }
+    .lead-perks { margin-top: 20px; }
+    .lead-perk { font-size: 0.84rem; margin-bottom: 10px; }
+
+    /* Service area */
+    .area-map-placeholder { height: 180px; }
+    .area-chips { gap: 7px; }
+    .area-chip { font-size: 0.72rem; padding: 5px 11px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; padding: 0 18px; }
+    footer { padding: 52px 0 24px; }
+    .footer-brand-logo { height: 70px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; padding: 18px 18px 0; }
+    .footer-bottom p { font-size: 0.7rem; }
+    .cert-badges { gap: 7px; }
+
+    /* Chat */
+    .chat-window { width: calc(100vw - 24px); right: 12px; bottom: 70px; }
+    .chat-bubble { width: 52px; height: 52px; right: 16px; bottom: 16px; font-size: 1.3rem; }
+    .chat-messages { height: 220px; }
   }
+
+  /* ─── RESPONSIVE — SMALL PHONES (≤380px) ─── */
+  @media (max-width: 380px) {
+    .hero-headline { font-size: 1.7rem; }
+    .section-title { font-size: 1.5rem; }
+    .nav-cta { display: none; }
+  }
+  /* ─── MOBILE STICKY CALL BAR ─── */
+  .mobile-call-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: var(--western-blue);
+    padding: 10px 16px 14px; /* extra bottom for safe-area */
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+    display: flex; gap: 10px; align-items: center;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.22);
+  }
+  .mobile-call-btn {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--western-gold); color: var(--white); text-decoration: none;
+    font-weight: 700; font-size: 0.95rem; padding: 13px 16px; border-radius: 10px;
+    letter-spacing: 0.01em;
+  }
+  .mobile-quote-btn {
+    flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.12); color: var(--white); text-decoration: none;
+    font-weight: 600; font-size: 0.88rem; padding: 13px 18px; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2); white-space: nowrap;
+  }
+  @media (min-width: 601px) { .mobile-call-bar { display: none !important; } }
+  @media (max-width: 600px) {
+    .mobile-call-bar { display: flex; }
+    /* push footer above sticky bar */
+    footer { padding-bottom: 90px; }
+    /* prevent chat bubble from overlapping */
+    .chat-bubble { bottom: 80px; }
+    .chat-window { bottom: 140px; }
+  }
+
 </style>
 </head>
 <body>
@@ -882,58 +1045,124 @@
     <div class="testimonials-header reveal">
       <span class="section-eyebrow">Real Stories, Real Families</span>
       <h2 id="reviews-heading" class="section-title">2,000+ Families Trust Western. Here's Why.</h2>
+      <p class="section-sub">Don't take our word for it. Here's what your neighbors in Southern Utah are saying.</p>
     </div>
+
     <div class="testimonials-grid">
 
-      <!-- Jenny: Superhero quote with photo -->
-      <article class="testimonial-card photo-card featured-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
-        <img src="jenny-testimonial.jpg" alt="Jenny with her Western Pest Control technician at her front door" class="testimonial-photo" loading="lazy">
-        <div class="testimonial-photo-body">
-          <div style="color:var(--western-gold);font-size:13px;margin-bottom:12px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text" itemprop="reviewBody" style="font-size:0.84rem;">"Who would ever guess that superheroes wear exterminator uniforms? These wonderful heroes come running when a gopher hides in my lawn, Hagrid&#8217;s spiders cast shadows in my bedroom, and when roaches invade my patio. Just like Superman, they greet me with a smile and always go the extra mile. Who doesn&#8217;t need a superhero on speed dial?"</p>
-          <div class="testimonial-author" style="margin-top:14px;">
-            <div class="author-avatar" style="background:var(--western-gold);" aria-hidden="true">J</div>
-            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span class="author-name" itemprop="name">Jenny</span>
-              <span class="author-location" style="color:rgba(255,255,255,0.52);">St. George, UT &nbsp;&#183;&nbsp; Western Customer</span>
-            </div>
+      <!-- 1: Jenny – superhero quote, featured -->
+      <article class="testimonial-card featured-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Who would ever guess that superheroes wear exterminator uniforms? These wonderful heroes come running when a gopher hides in my lawn, Hagrid's spiders cast shadows in my bedroom, and when roaches invade my patio. Just like Superman, they greet me with a smile and always go the extra mile. Who doesn't need a superhero on speed dial?"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:var(--western-gold);" aria-hidden="true">J</div>
+          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-name" itemprop="name">Jenny</span>
+            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Western Customer</span>
           </div>
         </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
       </article>
 
-      <!-- Carla: 9-year customer with Scott photo -->
-      <article class="testimonial-card photo-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
-        <img src="scott-and-carla.jpg" alt="Carla with Scott, her Western Pest Control technician of over 9 years" class="testimonial-photo" loading="lazy">
-        <div class="testimonial-photo-body">
-          <span class="tech-tag">&#9733;&nbsp; 9+ Year Customer</span>
-          <div style="color:var(--western-gold);font-size:13px;margin-bottom:12px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-text" itemprop="reviewBody">"Carla has been part of the Western family for over nine years. She&#8217;ll tell you she loves all of us here at Western &#8212; and honestly, the feeling is completely mutual. This is exactly what we mean when we say we&#8217;re here for good."</p>
-          <div class="testimonial-author" style="margin-top:14px;">
-            <div class="author-avatar" aria-hidden="true">C</div>
-            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span class="author-name" itemprop="name">Carla</span>
-              <span class="author-location">St. George, UT &nbsp;&#183;&nbsp; Customer for 9+ years</span>
-            </div>
+      <!-- 2: Carla – 9+ year customer -->
+      <article class="testimonial-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
+        <span class="t-badge">★ 9+ Year Customer</span>
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Carla has been part of the Western family for over nine years. She'll tell you she loves all of us here at Western — and honestly, the feeling is completely mutual. This is exactly what we mean when we say we're here for good."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">C</div>
+          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-name" itemprop="name">Carla</span>
+            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Technician: Scott</span>
           </div>
-          <span class="tech-name-line">&#128100; Technician: Scott</span>
         </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
       </article>
 
-      <!-- Robert T: text card -->
+      <!-- 3: Robert T. – switcher story -->
       <article class="testimonial-card reveal reveal-delay-3" itemscope itemtype="https://schema.org/Review">
-        <div class="testimonial-quote-mark" aria-hidden="true">&#8220;</div>
-        <div style="color:var(--western-gold);font-size:13px;margin-bottom:14px;" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text" itemprop="reviewBody">"Switched from another company after a year of frustration. Western diagnosed the actual problem and fixed it in two visits. They answered when I called. That shouldn&#8217;t be rare, but it is. Not here."</p>
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Switched from another company after a year of frustration. Western diagnosed the actual problem and fixed it in two visits. They answered when I called. That shouldn't be rare, but it is. Not here."</p>
         <div class="testimonial-author">
           <div class="author-avatar" aria-hidden="true">RT</div>
           <div itemprop="author" itemscope itemtype="https://schema.org/Person">
             <span class="author-name" itemprop="name">Robert T.</span>
-            <span class="author-location">Ivins, UT &nbsp;&#183;&nbsp; Customer for 4 years</span>
+            <span class="author-sub">Ivins, UT &nbsp;·&nbsp; Customer for 4 years</span>
           </div>
         </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
+      </article>
+
+      <!-- 4: Michelle H. – scorpion family -->
+      <article class="testimonial-card reveal reveal-delay-1" itemscope itemtype="https://schema.org/Review">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"We had scorpions in the baby's room. I was terrified. Western was at our house the same morning I called. Our tech explained exactly what he was doing and why. No scorpions since — and that was 14 months ago. I tell every new mom I know about them."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">MH</div>
+          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-name" itemprop="name">Michelle H.</span>
+            <span class="author-sub">Washington, UT &nbsp;·&nbsp; Customer for 2 years</span>
+          </div>
+        </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
+      </article>
+
+      <!-- 5: Dave & Lisa K. – long-term -->
+      <article class="testimonial-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Review">
+        <span class="t-badge">★ 7+ Year Customer</span>
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Seven years and counting. Our guy knows our dogs by name, coils the hose when he's done, and texts us when he's on the way. Western isn't a vendor — they're part of the rhythm of our home. We wouldn't switch for anything."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">DK</div>
+          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-name" itemprop="name">Dave &amp; Lisa K.</span>
+            <span class="author-sub">St. George, UT &nbsp;·&nbsp; Customer for 7 years</span>
+          </div>
+        </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
+      </article>
+
+      <!-- 6: Tom S. – 5-second answer -->
+      <article class="testimonial-card reveal reveal-delay-3" itemscope itemtype="https://schema.org/Review">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-text" itemprop="reviewBody">"Called at 7:45am on a Monday. A real person answered before the second ring. Technician was at my door by noon. I've dealt with other pest companies where I left three voicemails and heard nothing for two days. This is a completely different level of service."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">TS</div>
+          <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-name" itemprop="name">Tom S.</span>
+            <span class="author-sub">Hurricane, UT &nbsp;·&nbsp; Customer for 3 years</span>
+          </div>
+        </div>
+        <span class="t-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Google Review
+        </span>
       </article>
 
     </div>
+
+    <div class="reviews-cta reveal">
+      <a href="https://g.page/westernpestcontrol/review" target="_blank" rel="noopener" aria-label="Read all Western Pest Control Google reviews">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Read All 2,000+ Google Reviews
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -1358,6 +1587,15 @@
     <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." onkeypress="chatEnter(event)" aria-label="Chat message">
     <button class="chat-send" onclick="sendChat()" aria-label="Send message">→</button>
   </div>
+</div>
+
+<!-- ── MOBILE STICKY CALL BAR ── -->
+<div class="mobile-call-bar" aria-label="Call Western Pest Control">
+  <a href="tel:4353834303" class="mobile-call-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    Call (435) 383-4303
+  </a>
+  <a href="#get-started" class="mobile-quote-btn">Free Quote →</a>
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
